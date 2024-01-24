@@ -3,7 +3,6 @@ install.packages("psych")
 library(readxl)
 Variable_sel <- read_excel("Downloads/Variable_sel.xlsx")
 View(Variable_sel)
-
 attach(Variable_sel)
 Margin_full <- lm(Margin ~ ., data=Variable_sel)
 summary(Margin_full) 
@@ -16,4 +15,5 @@ Margin_forw <- step(Margin_base, scope= Margin ~ Number + Nearest + Space + Inco
 #Stepwise selection to confirm #
 Margin_step <- step(Margin_base, scope= Margin ~ Number + Nearest + Space + Income + Enrollment + Distance, direction = "both")
 # From the output we can see that all three of these selections procedures came up with the best model having excluded Distance and included all other variables for an AIC of 347.83. #
+
 
